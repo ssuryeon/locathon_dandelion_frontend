@@ -4,7 +4,7 @@ import heroStampSvgUrl from './assets/stampPlaceholder.svg'
 export const MAP_IMAGE_URL = heroMapSvgUrl
 export const STAMP_IMAGE_URL = heroStampSvgUrl
 
-export const STAMP_RADIUS_M = 20
+export const STAMP_RADIUS_M = 50
 
 // Number of spots shown around the current location.
 export const SPOT_COUNT = 6

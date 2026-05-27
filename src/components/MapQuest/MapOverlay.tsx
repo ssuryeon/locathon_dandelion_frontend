@@ -133,6 +133,8 @@ export default function MapOverlay({
           target: spot.position,
         })
 
+        const markerSize = stamped ? stampSizeReal : spotSizeReal
+
         return (
           <div
             key={spot.id}
@@ -140,8 +142,8 @@ export default function MapOverlay({
             style={{
               left: pos.x,
               top: pos.y,
-              width: spotSizeReal,
-              height: spotSizeReal,
+              width: markerSize,
+              height: markerSize,
             }}
           >
             {!stamped ? <div className="spotDot" /> : null}
@@ -150,8 +152,6 @@ export default function MapOverlay({
                 className="stampImage"
                 src={STAMP_IMAGE_URL}
                 alt=""
-                width={stampSizeReal}
-                height={stampSizeReal}
               />
             ) : null}
           </div>
