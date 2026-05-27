@@ -102,11 +102,11 @@ export default function KakaoMapPanel({
   const [mapReady, setMapReady] = useState(false)
 
   const mapContainerRef = useRef<HTMLDivElement | null>(null)
-  const mapRef = useRef<ReturnType<KakaoGlobal['maps']['Map']> | null>(null)
+  const mapRef = useRef<InstanceType<KakaoGlobal['maps']['Map']> | null>(null)
   const kakaoRef = useRef<KakaoGlobal | null>(null)
-  const currentMarkerRef = useRef<ReturnType<KakaoGlobal['maps']['Marker']> | null>(null)
-  const accuracyCircleRef = useRef<ReturnType<KakaoGlobal['maps']['Circle']> | null>(null)
-  const spotMarkersRef = useRef<ReturnType<KakaoGlobal['maps']['Marker']>[]>([])
+  const currentMarkerRef = useRef<InstanceType<KakaoGlobal['maps']['Marker']> | null>(null)
+  const accuracyCircleRef = useRef<InstanceType<KakaoGlobal['maps']['Circle']> | null>(null)
+  const spotMarkersRef = useRef<InstanceType<KakaoGlobal['maps']['Marker']>[]>([])
   const currentLocationImageRef = useRef<ReturnType<
     typeof createCurrentLocationMarkerImage
   > | null>(null)
