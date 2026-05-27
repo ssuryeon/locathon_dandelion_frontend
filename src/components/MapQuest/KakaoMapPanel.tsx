@@ -82,7 +82,7 @@ export default function KakaoMapPanel({ currentPosition, spots }: KakaoMapPanelP
         if (cancelled) return
         setStatus('ready')
 
-        if (!mapRef.current && currentPosition) {
+        if (!mapRef.current && currentPosition && mapContainerRef.current) {
           const center = new kakao.maps.LatLng(currentPosition.lat, currentPosition.lng)
           mapRef.current = new kakao.maps.Map(mapContainerRef.current, {
             center,
