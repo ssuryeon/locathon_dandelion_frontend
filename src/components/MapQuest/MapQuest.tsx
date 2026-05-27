@@ -46,10 +46,14 @@ export default function MapQuest() {
 
   const statusText = useMemo(() => {
     if (geo.status === 'requesting') return '위치 요청 중...'
-    if (geo.status === 'watching') return '현재 위치 추적 중'
+    if (geo.status === 'watching') {
+      const accuracy =
+        geo.accuracyM !== undefined ? ` (정확도 약 ${Math.round(geo.accuracyM)}m)` : ''
+      return `현재 위치 추적 중${accuracy}`
+    }
     if (geo.status === 'error') return geo.error ?? '위치 오류'
     return '위치 대기 중'
-  }, [geo.error, geo.status])
+  }, [geo.accuracyM, geo.error, geo.status])
 
   return (
     <div className="mapQuestWrap">
@@ -77,7 +81,11 @@ export default function MapQuest() {
         />
       </div>
 
-      <KakaoMapPanel currentPosition={geo.position} spots={spots} />
+      <KakaoMapPanel
+        currentPosition={geo.position}
+        accuracyM={geo.accuracyM}
+        spots={spots}
+      />
     </div>
   )
 }

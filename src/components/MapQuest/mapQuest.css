@@ -114,6 +114,33 @@
   font-size: 14px;
   border-bottom: 1px solid var(--border);
   color: var(--text-h);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.kakaoRecenterBtn {
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.kakaoRecenterBtn:hover {
+  border-color: var(--accent-border);
+}
+
+.kakaoCoords {
+  padding: 8px 14px 12px;
+  font-size: 12px;
+  color: var(--text);
+  text-align: left;
+  font-family: var(--mono);
+  border-top: 1px solid var(--border);
 }
 
 .kakaoPanelBody {
