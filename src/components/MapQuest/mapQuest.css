@@ -27,6 +27,26 @@
   color: var(--text);
 }
 
+.regenerateBtn {
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.regenerateBtn:hover:not(:disabled) {
+  border-color: var(--accent-border);
+}
+
+.regenerateBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .mapFrame {
   width: min(92vw, 900px);
   aspect-ratio: 3 / 1.8;
