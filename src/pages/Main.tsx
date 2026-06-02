@@ -13,6 +13,7 @@ const Container = styled.div`
     align-items: center;
     position: relative;
     padding: 20px;
+    padding-bottom: 0;
     box-sizing: border-box;
 `;
 
@@ -44,7 +45,7 @@ const Button = styled.button`
     font-weight : 400;
     font-size: 14px;
     width: 100%;
-    height: 45px;
+    padding: 15px;
     margin-top: 30px;
 `;
 
@@ -58,9 +59,15 @@ const MenuContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin-right: 10px;
+    &:nth-of-type(4) {
+        margin-right: 0;
+    }
 `;
 
 const ScrollContainer = styled.div`
+    width: 100%;
+    overflow-x: auto;
+    justify-content: center;
     &::-webkit-scrollbar {
         display: none;
     }
@@ -99,7 +106,7 @@ function Main() {
                 <TextArea style={{fontSize: 13, marginTop: 8}}>카페 레퓨즈는 공방거리 로스터리 카페입니다</TextArea>
             </div>
             <Button onClick={() => navigate('/map')}>공방거리 걷기</Button>
-            <ScrollContainer style={{display: 'flex', flexDirection: 'row', overflowX: 'auto', marginTop: 40}}>
+            <ScrollContainer style={{display: 'flex', flexDirection: 'row', marginTop: 40}}>
                 {selected.map((num, idx) => (
                     <MenuContainer key={idx}>
                         <img src={`/${menus[num]}.svg`} width={90} height={120} />
