@@ -59,13 +59,14 @@ const MenuContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin-right: 10px;
-    &:nth-of-type(4) {
+    &:nth-of-type(8) {
         margin-right: 0;
     }
 `;
 
 const ScrollContainer = styled.div`
     width: 100%;
+    height: 152px;
     overflow-x: auto;
     justify-content: center;
     &::-webkit-scrollbar {
@@ -82,7 +83,7 @@ function Main() {
     useEffect(() => {
         let cnt = 0;
         const nums:number[] = [];
-        while(cnt <= 3) {
+        while(cnt <= 7) {
             const rand = Math.floor(Math.random()*12);
             if(nums.includes(rand)) continue;
             cnt += 1;
@@ -106,13 +107,17 @@ function Main() {
                 <TextArea style={{fontSize: 13, marginTop: 8}}>카페 레퓨즈는 공방거리 로스터리 카페입니다</TextArea>
             </div>
             <Button onClick={() => navigate('/map')}>공방거리 걷기</Button>
-            <ScrollContainer style={{display: 'flex', flexDirection: 'row', marginTop: 40}}>
-                {selected.map((num, idx) => (
-                    <MenuContainer key={idx}>
-                        <img src={`/${menus[num]}.svg`} width={90} height={120} />
-                    </MenuContainer>
-                ))}
-            </ScrollContainer>
+            {
+                selected.length && (
+                    <ScrollContainer style={{display: 'flex', flexDirection: 'row', marginTop: 40}}>
+                        {selected.map((num, idx) => (
+                            <MenuContainer key={idx}>
+                                <img src={`/${menus[num]}.svg`} width={90} height={120} />
+                            </MenuContainer>
+                        ))}
+                    </ScrollContainer>
+                )
+            }
         </Container>
     );
 }
