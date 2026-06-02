@@ -6,15 +6,21 @@ const Container = styled.div`
     background-image: url(/background.svg);
     background-repeat: repeat;
     width: 100%; 
-    height: 100%;
+    min-height: 100vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column; 
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     position: relative;
     padding: 20px;
     padding-bottom: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `;
 
 const Header = styled.div`
@@ -101,7 +107,7 @@ function Main() {
                 <img src='/text_logo.svg' />
                 <img src='/menu_icon.svg' />
             </Header>
-            <img src='/logo.svg' />
+            <img src='/logo.svg' style={{marginTop: 30, marginBottom: 20}}/>
             <div style={{display: 'flex', flexDirection: 'column'}}>
                 <TextArea><span style={{fontWeight: 700}}>cafe REFUGE</span> is a</TextArea>
                 <TextArea style={{fontWeight: 700}}>workshop street</TextArea>
