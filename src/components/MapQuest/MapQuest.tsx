@@ -12,6 +12,7 @@ import {
   STAMP_RADIUS_M,
 } from '../../config'
 import './mapQuest.css'
+import '../../App.css'
 
 const STORAGE_KEY = 'locathon_quest_state'
 
@@ -102,7 +103,7 @@ export default function MapQuest() {
   }, [geo.accuracyM, geo.error, geo.status])
 
   return (
-    <div className="mapQuestWrap">
+    <div className="mapQuestWrap" style={{height: '100%'}}>
       <div className="statusBar">
         <div className="statusItem">{statusText}</div>
         <div className="statusItem">
