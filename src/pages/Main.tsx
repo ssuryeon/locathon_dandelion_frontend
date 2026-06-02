@@ -68,6 +68,8 @@ const ScrollContainer = styled.div`
     width: 100%;
     height: 152px;
     overflow-x: auto;
+    overflow-y: hidden;
+    touch-action: pan-x;
     justify-content: center;
     &::-webkit-scrollbar {
         display: none;
