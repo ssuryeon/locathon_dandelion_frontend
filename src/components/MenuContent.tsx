@@ -28,7 +28,7 @@ function MenuItem({name, eng_name, isRight}:IMenu) {
                 <img src={`/${name}.svg`}/>
             </div>
             <span style={{fontSize: 20, fontWeight: 700, color: '#E7D9C9', marginTop: 14}}>{name}</span>
-            <span style={{fontSize: 15, fontWeight: 'normal', color: '#E7D9C9', marginTop: 2}}>{eng_name}</span>
+            <span style={{fontSize: 13, fontWeight: 'normal', color: '#E7D9C9', marginTop: 2}}>{eng_name}</span>
         </div>
     )
 }
