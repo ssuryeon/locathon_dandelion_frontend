@@ -3,15 +3,20 @@ import GlobalStyle from './styles/globalStyle';
 import styled from 'styled-components';
 import Main from './pages/Main';
 import MapQuest from './components/MapQuest/MapQuest';
+import Menu from './pages/Menu';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    Component: Main
+    Component: Main,
   },
   {
     path: '/map',
     Component: MapQuest,
+  },
+  {
+    path: '/menu',
+    Component: Menu,
   }
 ])
 

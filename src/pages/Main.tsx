@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import {useEffect, useState} from 'react';
 import { useNavigate } from "react-router";
+import Header from '../components/Header';
+import Overlay from "../components/Overlay";
+import clickedStore from "../stores/MenuClickedStore";
 
 const Container = styled.div`
     background-image: url(/background.svg);
@@ -21,17 +24,6 @@ const Container = styled.div`
     &::-webkit-scrollbar {
         display: none;
     }
-`;
-
-const Header = styled.div`
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    position: absolute;
-    top: 0;
 `;
 
 const TextArea = styled.span`
@@ -72,7 +64,7 @@ const MenuContainer = styled.div`
 
 const ScrollContainer = styled.div`
     width: 100%;
-    height: 152px;
+    height: 162px;
     overflow-x: auto;
     overflow-y: hidden;
     touch-action: pan-x;
@@ -82,13 +74,46 @@ const ScrollContainer = styled.div`
     }
 `;
 
-const menus = ['레퓨즈페너', '바닐라 라떼', '아메리카노', '아몬드 헤이즐넛 라떼', '아포카토', '에스프레소', '카페라떼', '카페모카', '카푸치노', '코르타도', '콘파냐', '크림레퓨즈']
+const menus = [
+  '크림 레퓨즈',
+  '콘파냐',
+  '코르타도',
+  '레퓨즈 페너',
+  '아메리카노',
+  '카페라떼',
+  '카푸치노',
+  '바닐라 라떼',
+  '아몬드 헤이즐넛',
+  '카페모카',
+  '에스프레소',
+  '아포카토',
+  '라즈베리콕',
+  '라즈베리 차',
+  '라즈베리 에이드',
+  '초코라떼',
+  '허브 차',
+  '잔 와인',
+  '하이네켄',
+  '기네스',
+  '버번 콕 플로트',
+  '뱅쇼',
+  '라즈베리 하이볼',
+  '위스키 리타',
+  '아이리쉬 커피 하이볼',
+  '수제 리얼 티라미수',
+  '초콜릿 & 바게트',
+  '바닐라 베리 젤라토',
+  '판나코타'
+]
 
 function Main() {
     const [selected, setSelected] = useState<number[]>([]);
     const navigate = useNavigate();
+    const isClicked = clickedStore((state) => state.isClicked);
+    const setIsClicked = clickedStore((state) => state.setIsClicked);
 
     useEffect(() => {
+        setIsClicked(false);
         let cnt = 0;
         const nums:number[] = [];
         while(cnt <= 7) {
@@ -102,31 +127,33 @@ function Main() {
     }, []);
 
     return (
-        <Container>
-            <Header>
-                <img src='/text_logo.svg' />
-                <img src='/menu_icon.svg' />
-            </Header>
-            <img src='/logo.svg' style={{marginTop: 30, marginBottom: 20}}/>
-            <div style={{display: 'flex', flexDirection: 'column'}}>
-                <TextArea><span style={{fontWeight: 700}}>cafe REFUGE</span> is a</TextArea>
-                <TextArea style={{fontWeight: 700}}>workshop street</TextArea>
-                <TextArea>roasting cafe.</TextArea>
-                <TextArea style={{fontSize: 13, marginTop: 8}}>카페 레퓨즈는 공방거리 로스터리 카페입니다</TextArea>
-            </div>
-            <Button onClick={() => navigate('/map')}>공방거리 걷기</Button>
+        <>
             {
-                selected.length && (
-                    <ScrollContainer style={{display: 'flex', flexDirection: 'row', marginTop: 40}}>
-                        {selected.map((num, idx) => (
-                            <MenuContainer key={idx}>
-                                <img src={`/${menus[num]}.svg`} width={90} height={120} />
-                            </MenuContainer>
-                        ))}
-                    </ScrollContainer>
-                )
+                isClicked? <Overlay /> : null
             }
-        </Container>
+            <Container>
+                <Header />
+                <img src='/logo.svg' style={{marginTop: 30, marginBottom: 20}}/>
+                <div style={{display: 'flex', flexDirection: 'column'}}>
+                    <TextArea><span style={{fontWeight: 700}}>cafe REFUGE</span> is a</TextArea>
+                    <TextArea style={{fontWeight: 700}}>workshop street</TextArea>
+                    <TextArea>roasting cafe.</TextArea>
+                    <TextArea style={{fontSize: 13, marginTop: 8}}>카페 레퓨즈는 공방거리 로스터리 카페입니다</TextArea>
+                </div>
+                <Button onClick={() => navigate('/map')}>공방거리 걷기</Button>
+                {
+                    selected.length && (
+                        <ScrollContainer style={{display: 'flex', flexDirection: 'row', marginTop: 40}}>
+                            {selected.map((num, idx) => (
+                                <MenuContainer key={idx}>
+                                    <img src={`/${menus[num]}.svg`} width={90} height={120} />
+                                </MenuContainer>
+                            ))}
+                        </ScrollContainer>
+                    )
+                }
+            </Container>
+        </>
     );
 }
 
