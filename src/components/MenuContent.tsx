@@ -18,11 +18,10 @@ interface IContent {
 
 const GridContainer = styled.div`
     display: grid;
-    width: calc(100% + 64px);
+    width: 100%;
     grid-template-columns: repeat(2, 1fr);
     row-gap: 63px;
-    margin-left: -32px;
-    margin-right: -32px;
+    box-sizing: border-box;
 `;
 
 const GridWrapper = styled.div<IWrapper>`
@@ -30,14 +29,16 @@ const GridWrapper = styled.div<IWrapper>`
     height: 100%;
     display: flex;
     justify-content: ${props => props.isRight ? 'flex-end' : 'flex-start'};
-    padding-left: ${props => props.isRight ? 0 : '32px'};
-    padding-right: ${props => props.isRight ? '32px' : 0};
     box-sizing: border-box;
     background-image: url(/menuItemBackground.svg);
-    background-repeat: repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-origin: border-box;
+    background-clip: border-box;
+    background-position: ${props => props.isRight ? 'right center' : 'left center'};
 `;
 
-function MenuItem({name, eng_name, isRight}:IMenu) {
+function MenuItem({name, eng_name}:IMenu) {
     return (
         <div style={{display: 'flex', flexDirection: 'column'}}>
             <div style={{width: 138, height: 172, backgroundColor: '#474848', borderRadius: 10.34, border: '1px solid #DFDFDF'}}>

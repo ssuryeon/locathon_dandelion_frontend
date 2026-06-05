@@ -29,5 +29,17 @@
     "typescript": "~6.0.2",
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.12"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssuryeon/locathon_dandelion_frontend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssuryeon/locathon_dandelion_frontend/issues"
+  },
+  "homepage": "https://github.com/ssuryeon/locathon_dandelion_frontend#readme"
 }
