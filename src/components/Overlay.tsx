@@ -19,7 +19,7 @@ const BlurContainer = styled.div`
 const Modal = styled.div`
     width: 100%;
     height: 633px;
-    background-image: url(/menu_detail_background.svg);
+    background-image: url(/background.svg);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 20px;
@@ -42,10 +42,19 @@ const MenuBtn = styled.button`
     border-radius: 10.34px;
     color: #FFFDEC;
     margin-bottom: 40px;
-    font-size: 20px;
+    font-size: 14px;
     &:nth-of-type(5) {
         margin-bottom: 0;
     }
+`;
+
+const Header = styled.div`
+    width: 100%;
+    height: 57px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
 `;
 
 function Overlay() {
@@ -54,9 +63,15 @@ function Overlay() {
 
     return (
         <BlurContainer>
-            <img src='/back_icon.svg' onClick={() => setIsClicked(false)} style={{marginTop: 32}}/>
+            <Header>
+                <img src='/text_logo.svg' width={78} height={21}/>
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 25 23" fill="none" onClick={() => setIsClicked(false)}>
+                    <path d="M5.0719 18.8491L19.9211 3.99988" stroke="#E4E4E4" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M19.8492 18.8491L5 3.99988" stroke="#E4E4E4" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </Header>
             <Modal>
-                <div style={{height: 48}}/>
+                <img src='/logo.svg' width={132} height={102} style={{marginBottom: 28}}/>
                 <MenuBtn onClick={() => navigate('/')}>홈</MenuBtn>
                 <MenuBtn onClick={() => navigate('/menu')}>메뉴판</MenuBtn>
                 <MenuBtn>브랜드 소개</MenuBtn>

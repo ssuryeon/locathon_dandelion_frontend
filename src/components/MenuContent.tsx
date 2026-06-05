@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+interface IWrapper {
+    isRight: boolean,
+}
 interface IMenu {
     name: string,
     eng_name: string,
@@ -15,15 +18,28 @@ interface IContent {
 
 const GridContainer = styled.div`
     display: grid;
-    width: 100%;
+    width: calc(100% + 64px);
     grid-template-columns: repeat(2, 1fr);
-    /* column-gap: 62px; */
     row-gap: 63px;
+    margin-left: -32px;
+    margin-right: -32px;
+`;
+
+const GridWrapper = styled.div<IWrapper>`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: ${props => props.isRight ? 'flex-end' : 'flex-start'};
+    padding-left: ${props => props.isRight ? 0 : '32px'};
+    padding-right: ${props => props.isRight ? '32px' : 0};
+    box-sizing: border-box;
+    background-image: url(/menuItemBackground.svg);
+    background-repeat: repeat;
 `;
 
 function MenuItem({name, eng_name, isRight}:IMenu) {
     return (
-        <div style={{display: 'flex', flexDirection: 'column', justifySelf: isRight? 'end' : 'start'}}>
+        <div style={{display: 'flex', flexDirection: 'column'}}>
             <div style={{width: 138, height: 172, backgroundColor: '#474848', borderRadius: 10.34, border: '1px solid #DFDFDF'}}>
                 <img src={`/${name}.svg`}/>
             </div>
@@ -40,8 +56,10 @@ function MenuContent({title, name, menus, style}:IContent) {
             <span style={{fontSize: 20, fontWeight: "normal", color: '#E7D9C9', marginBottom: 22}}>{name}</span>
             <GridContainer>
                 {
-                    menus.map((m, idx) => 
-                        <MenuItem name={m.name} eng_name={m.eng_name} key={idx} isRight={(idx % 2) ? true : false}/>
+                    menus.map((m, idx) =>
+                        <GridWrapper isRight={(idx % 2) ? true : false}>
+                            <MenuItem name={m.name} eng_name={m.eng_name} key={idx} isRight={(idx % 2) ? true : false}/>
+                        </GridWrapper>
                     )
                 }
             </GridContainer>
