@@ -13,10 +13,9 @@ const Container = styled.div`
     overflow-y: auto;
     display: flex;
     flex-direction: column; 
-    /* justify-content: center; */
     align-items: center;
     position: relative;
-    padding: 20px;
+    // padding: 20px;
     padding-bottom: 0;
     box-sizing: border-box;
     overflow-x: hidden;
@@ -166,21 +165,26 @@ function Main() {
                     <Button>나와 어울리는 커피 찾기</Button>
                 </div>
                 <LineIcon style={{marginBottom: 124}}/>
-                <span style={{fontSize: 15, fontWeight: 700, color: '#FFFDEC'}}>추천 메뉴</span>
-                <div style={{width: '100%'}}>
-                    <LineIcon style={{marginBottom: 7}}/>
-                        {
-                            selected.length && (
-                                <ScrollContainer>
-                                    {selected.map((num, idx) => (
-                                        <MenuContainer key={idx}>
-                                            <img src={`/${menus[num]}.svg`} width={90} height={120} />
-                                        </MenuContainer>
-                                    ))}
-                                </ScrollContainer>
-                            )
-                        }
-                    <LineIcon style={{marginTop: 7}}/>
+                <span style={{fontSize: 15, fontWeight: 600, color: '#FFFDEC'}}>추천 메뉴</span>
+                <LineIcon style={{marginBottom: 7}}/>
+                    {
+                        selected.length && (
+                            <ScrollContainer>
+                                {selected.map((num, idx) => (
+                                    <MenuContainer key={idx}>
+                                        <img src={`/${menus[num]}.svg`} width={90} height={120} />
+                                    </MenuContainer>
+                                ))}
+                            </ScrollContainer>
+                        )
+                    }
+                <LineIcon style={{marginTop: 7}}/>
+                <div style={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 207}}>
+                    <span style={{fontWeight: 200, fontFamily: 'SpokaHanSansNeo', fontSize: 13, color: '#FFFDEC', marginBottom: 5}}>scroll to menu</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="6" height="18" viewBox="0 0 6 18" fill="none">
+                        <path d="M2.88672 17.8868L5.77347 15L2.88672 12.1132L-3.20077e-05 15L2.88672 17.8868ZM2.88672 0L2.38672 2.18557e-08L2.38672 15L2.88672 15L3.38672 15L3.38672 -2.18557e-08L2.88672 0Z" fill="white"/>
+                    </svg>
+                    <div style={{height: 30, width: '100%', textAlign: 'center', fontWeight: 400, fontSize: 10, fontFamily: 'SpokaHanSansNeo', color: '#E7D9C9', background: 'url(/dark_background.svg)', marginTop: 21, marginBottom: 90}}>경기도 수원시 팔달구 행궁로 41-1 카페 레퓨즈 (cafe REFUGE 1층)</div>
                 </div>
             </Container>
         </>
