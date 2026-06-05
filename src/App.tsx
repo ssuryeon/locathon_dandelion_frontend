@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Main from './pages/Main';
 import MapQuest from './components/MapQuest/MapQuest';
 import Menu from './pages/Menu';
+import RecommendCoffee from './pages/RecommendCoffee';
+import Content0 from './pages/recommendCoffee/Content_0';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,16 @@ const router = createBrowserRouter([
   {
     path: '/menu',
     Component: Menu,
+  }, 
+  {
+    path: '/recommend',
+    Component: RecommendCoffee,
+    children: [
+      {
+        index: true,
+        Component: Content0,
+      }
+    ]
   }
 ])
 
