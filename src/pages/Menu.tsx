@@ -16,7 +16,7 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 32px;
+    // padding: 32px;
     box-sizing: border-box;
     position: relative;
 `;
@@ -91,7 +91,7 @@ function Menu() {
             }
             <Header />
             <img src='/logo.svg' width={132} height={102}  style={{marginTop: 57, marginBottom: 34}}/>
-            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
+            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', paddingLeft: 32}}>
                 <CategoryBtn onClick={() => setCategory(1)} style={{backgroundColor: (category == 1) ? '#DFDFDF' : '#474848', color: (category == 1) ? '#474848' : '#FFFFFF'}}>커피</CategoryBtn>
                 <CategoryBtn onClick={() => setCategory(2)} style={{backgroundColor: (category == 2) ? '#DFDFDF' : '#474848', color: (category == 2) ? '#474848' : '#FFFFFF'}}>논커피</CategoryBtn>
                 <CategoryBtn onClick={() => setCategory(3)} style={{backgroundColor: (category == 3) ? '#DFDFDF' : '#474848', color: (category == 3) ? '#474848' : '#FFFFFF'}}>푸드</CategoryBtn>
@@ -115,6 +115,7 @@ function Menu() {
                             </div>
                 }
             </div>
+            <div style={{height: 30, width: '100%', textAlign: 'center', fontWeight: 400, fontSize: 10, fontFamily: 'SpokaHanSansNeo', color: '#E7D9C9', background: 'url(/dark_background.svg)', marginTop: 134, marginBottom: 82}}>경기도 수원시 팔달구 행궁로 41-1 카페 레퓨즈 (cafe REFUGE 1층)</div>
         </Container>
     );
 }

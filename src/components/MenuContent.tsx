@@ -28,14 +28,14 @@ const GridWrapper = styled.div<IWrapper>`
     width: 100%;
     height: 100%;
     display: flex;
+    padding-left: ${props => props.isRight ? 0 : '32px'};
+    padding-right: ${props => props.isRight ? '32px' : 0};
     justify-content: ${props => props.isRight ? 'flex-end' : 'flex-start'};
     box-sizing: border-box;
     background-image: url(/menuItemBackground.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-origin: border-box;
-    background-clip: border-box;
-    background-position: ${props => props.isRight ? 'right center' : 'left center'};
+    background-position: ${props => props.isRight ? 'right' : 'left'};
 `;
 
 function MenuItem({name, eng_name}:IMenu) {
@@ -53,8 +53,8 @@ function MenuItem({name, eng_name}:IMenu) {
 function MenuContent({title, name, menus, style}:IContent) {
     return (
         <div style={{display: 'flex', flexDirection: 'column', marginTop: 30, ...style}}>
-            <span style={{fontSize: 26, fontWeight: 700, color: '#E7D9C9', marginBottom: 10}}>{title}</span>
-            <span style={{fontSize: 20, fontWeight: "normal", color: '#E7D9C9', marginBottom: 22}}>{name}</span>
+            <span style={{fontSize: 26, fontWeight: 700, color: '#E7D9C9', marginBottom: 10, paddingLeft: 32}}>{title}</span>
+            <span style={{fontSize: 20, fontWeight: "normal", color: '#E7D9C9', marginBottom: 22, paddingLeft: 32}}>{name}</span>
             <GridContainer>
                 {
                     menus.map((m, idx) =>
