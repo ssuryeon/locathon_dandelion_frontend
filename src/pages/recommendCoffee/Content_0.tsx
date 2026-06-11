@@ -1,4 +1,3 @@
-import styled from 'styled-components';
 import { ContentContainer } from '../../components/ContentContainer';
 import { useNavigate } from 'react-router';
 import { SelectBtn } from '../../components/SelectBtn';
