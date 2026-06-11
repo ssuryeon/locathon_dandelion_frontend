@@ -42,7 +42,7 @@ function MenuItem({name, eng_name}:IMenu) {
     return (
         <div style={{display: 'flex', flexDirection: 'column'}}>
             <div style={{width: 138, height: 172, backgroundColor: '#474848', borderRadius: 10.34, border: '1px solid #DFDFDF'}}>
-                <img src={`/${name}.svg`}/>
+                <img src={`/menu/${name}.svg`}/>
             </div>
             <span style={{fontSize: 20, fontWeight: 700, color: '#E7D9C9', marginTop: 14}}>{name}</span>
             <span style={{fontSize: 13, fontWeight: 'normal', color: '#E7D9C9', marginTop: 2}}>{eng_name}</span>

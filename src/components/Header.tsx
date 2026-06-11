@@ -4,6 +4,7 @@ import clickedStore from "../stores/MenuClickedStore";
 const Container = styled.div`
     width: 100%;
     padding: 20px;
+    height: 57px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;

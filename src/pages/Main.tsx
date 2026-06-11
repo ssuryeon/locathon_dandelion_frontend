@@ -162,7 +162,7 @@ function Main() {
                     <span style={{color: '#FFFDEC', fontSize: 13, marginBottom: 15, fontWeight: 200, fontFamily: 'SpokaHanSansNeo'}}>공방거리를 걸으며 꺼져가는 불씨를 살려 선물을 받으세요!</span>
                     <img src='/fire_icon.svg' style={{marginBottom: 24}}/>
                     <Button onClick={() => navigate('/map')} style={{marginBottom: 24}}>공방거리 걷기</Button>
-                    <Button>나와 어울리는 커피 찾기</Button>
+                    <Button onClick={() => navigate('/recommend')}>나와 어울리는 커피 찾기</Button>
                 </div>
                 <LineIcon style={{marginBottom: 124}}/>
                 <span style={{fontSize: 15, fontWeight: 600, color: '#FFFDEC'}}>추천 메뉴</span>
@@ -172,7 +172,7 @@ function Main() {
                             <ScrollContainer>
                                 {selected.map((num, idx) => (
                                     <MenuContainer key={idx}>
-                                        <img src={`/${menus[num]}.svg`} width={90} height={120} />
+                                        <img src={`/menu/${menus[num]}.svg`} width={90} height={120} />
                                     </MenuContainer>
                                 ))}
                             </ScrollContainer>

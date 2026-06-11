@@ -1,0 +1,22 @@
+import { AnswerBtn } from "../../components/AnswerBtn";
+import { ContentContainer } from "../../components/ContentContainer";
+import { useNavigate } from "react-router";
+
+function Content5() {
+    const navigate = useNavigate();
+    const onClick = () => navigate('/recommend/six');
+
+    return (
+        <ContentContainer style={{alignItems: 'center'}}>
+            <img src='/question_images/q5_image.svg' width={347} height={231} style={{marginTop: 104}} />
+            <span style={{fontSize: 15, fontWeight: 700, color: '#DEDEDE', marginTop: 34, marginBottom: 34}}>Q5. 불이 천천히 타오르고 있다.<br />그 모습을 보고 있다면 당신은?</span>
+            <AnswerBtn onClick={onClick}>새로운 아이디어를 떠올린다</AnswerBtn>
+            <AnswerBtn onClick={onClick}>해야 할 일을 차분히 정리한다</AnswerBtn>
+            <AnswerBtn onClick={onClick}>옆 사람과 이야기를 이어간다</AnswerBtn>
+            <AnswerBtn style={{marginBottom: 0}} onClick={onClick}>잠시 아무 생각 없이 쉬어간다</AnswerBtn>
+            <span style={{marginTop: 37, color: '#F5CD8A', fontSize: 12, fontWeight: 700}}>5/6</span>
+        </ContentContainer>
+    )
+}
+
+export default Content5;

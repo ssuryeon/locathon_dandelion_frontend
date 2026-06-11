@@ -6,6 +6,13 @@ import MapQuest from './components/MapQuest/MapQuest';
 import Menu from './pages/Menu';
 import RecommendCoffee from './pages/RecommendCoffee';
 import Content0 from './pages/recommendCoffee/Content_0';
+import Content1 from './pages/recommendCoffee/Content_1';
+import Content2 from './pages/recommendCoffee/Content_2';
+import Content3 from './pages/recommendCoffee/Content_3';
+import Content4 from './pages/recommendCoffee/Content_4';
+import Content5 from './pages/recommendCoffee/Content_5';
+import Content6 from './pages/recommendCoffee/Content_6';
+import RecommendResult from './pages/recommendCoffee/RecommendResult';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +34,34 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Content0,
+      },
+      {
+        path: 'one',
+        Component: Content1,
+      },
+      {
+        path: 'two',
+        Component: Content2,
+      },
+      {
+        path: 'three',
+        Component: Content3,
+      },
+      {
+        path: 'four',
+        Component: Content4,
+      },
+      {
+        path: 'five',
+        Component: Content5,
+      },
+      {
+        path: 'six',
+        Component: Content6,
+      },
+      {
+        path: 'result',
+        Component: RecommendResult,
       }
     ]
   }
