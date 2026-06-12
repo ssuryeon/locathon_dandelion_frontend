@@ -1,9 +1,11 @@
 import { ContentContainer } from '../../components/ContentContainer';
 import { useNavigate } from 'react-router';
 import { SelectBtn } from '../../components/SelectBtn';
+import { recommendStore } from '../../stores/RecommendStore';
 
 function Content0() {
     const navigate = useNavigate();
+    const reset = recommendStore((state) => state.reset);
 
     return(
         <ContentContainer style={{justifyContent: 'center'}}>
@@ -14,7 +16,11 @@ function Content0() {
                 </div>
                 <span style={{color: '#DEDEDE', fontSize: 13, fontWeight: 400}} >로스터리 장인이 당신과 어울리는 커피를 권하고자 합니다.</span>
                 <div style={{display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center', justifyContent: 'center', marginTop: 33}}>
-                    <SelectBtn style={{marginBottom: 31, color: '#F5CD8A'}} onClick={() => navigate('/recommend/one')}>추천해주세요</SelectBtn>
+                    <SelectBtn style={{marginBottom: 31, color: '#F5CD8A'}} onClick={() => {
+                            navigate('/recommend/one');
+                            reset();
+                        }
+                    }>추천해주세요</SelectBtn>
                     <SelectBtn style={{color: '#FFFDEC'}} onClick={() => navigate('/')}>돌아가기</SelectBtn>
                 </div>
             </div>

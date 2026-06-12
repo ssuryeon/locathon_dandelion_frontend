@@ -1,44 +1,218 @@
 export const menuCoordinates = [
   // Signature
-  { name: '크림 레퓨즈', eng_name: 'Cream refuge', x: 8, y: 10 },
-  { name: '콘파냐', eng_name: 'ConPanna', x: 5, y: -8 },
-  { name: '코르타도', eng_name: 'Cortado', x: 2, y: -12 },
-  { name: '레퓨즈 페너', eng_name: 'Refugesspanner', x: 10, y: 8 },
+  {
+    name: '크림 레퓨즈',
+    eng_name: 'Cream refuge',
+    x: 8,
+    y: 10,
+    description: '익숙한 것보다 새로운 가능성에 더 끌리는 당신. 부드러운 인상 속에서도 자신만의 기준을 놓치지 않는 사람입니다. 달콤함과 깊은 풍미가 함께 머무는 크림 레퓨즈처럼, 당신은 편안함 속에 특별함을 품고 있습니다.'
+  },
+  {
+    name: '콘파냐',
+    eng_name: 'ConPanna',
+    x: 5,
+    y: -8,
+    description: '조용한 공간에서 자신만의 리듬을 찾는 당신. 오래도록 은은하게 타오르는 불과 닮았습니다. 편안함이 가장 큰 매력인 한 잔.'
+  },
+  {
+    name: '코르타도',
+    eng_name: 'Cortado',
+    x: 2,
+    y: -12,
+    description: '균형을 중요하게 생각하는 당신. 감성과 이성을 적절히 조화시키며 흔들리지 않는 중심을 가지고 있습니다. 과하지도 부족하지도 않은 코르타도처럼 당신은 안정적인 매력을 지녔습니다.'
+  },
+  {
+    name: '레퓨즈 페너',
+    eng_name: 'Refugesspanner',
+    x: 10,
+    y: 8,
+    description: '사람들과 함께할 때 가장 빛나는 당신. 자연스럽게 분위기를 이끌며 주변을 따뜻하게 만드는 매력이 있습니다. 진한 커피와 부드러운 크림이 어우러진 한 잔처럼, 당신은 누구에게나 편안한 쉼이 되어줍니다.'
+  },
 
   // Coffee
-  { name: '아메리카노', eng_name: 'Americano', x: -12, y: -8 },
-  { name: '카페라떼', eng_name: 'Cafe Latte', x: -8, y: 4 },
-  { name: '카푸치노', eng_name: 'Capuccino', x: -4, y: 8 },
-  { name: '바닐라 라떼', eng_name: 'Vanilla Latte', x: 2, y: 6 },
-  { name: '아몬드 헤이즐넛', eng_name: 'Almond Hazlenuts', x: 8, y: 4 },
-  { name: '카페모카', eng_name: 'Cafe Mocha', x: 5, y: 2 },
-  { name: '에스프레소', eng_name: 'Espresso', x: -10, y: -12 },
-  { name: '아포카토', eng_name: 'Affogato', x: 10, y: -2 },
+  {
+    name: '아메리카노',
+    eng_name: 'Americano',
+    x: -12,
+    y: -8,
+    description: '군더더기 없는 선택을 선호하는 당신. 본질을 중요하게 생각하며 흔들리지 않는 기준을 가지고 있습니다. 가장 단순하지만 가장 깊은 풍미를 가진 아메리카노처럼 당신은 담백한 매력이 있습니다.'
+  },
+  {
+    name: '카페라떼',
+    eng_name: 'Cafe Latte',
+    x: -8,
+    y: 4,
+    description: '배려심이 깊고 사람을 편안하게 만드는 당신. 주변의 작은 변화도 놓치지 않는 따뜻한 성격입니다. 부드러운 우유와 커피가 만나듯 당신은 사람들 사이를 자연스럽게 이어줍니다.'
+  },
+  {
+    name: '카푸치노',
+    eng_name: 'Capuccino',
+    x: -4,
+    y: 8,
+    description: '차분하면서도 자신만의 취향이 분명한 당신. 겉으로는 부드럽지만 내면에는 단단한 신념을 품고 있습니다. 풍성한 거품 아래 진한 풍미를 가진 카푸치노처럼 당신은 깊이 있는 사람입니다.'
+  },
+  {
+    name: '바닐라 라떼',
+    eng_name: 'Vanilla Latte',
+    x: 2,
+    y: 6,
+    description: '부드럽고 다정한 매력을 가진 당신. 사람들과 자연스럽게 어울리며 편안한 분위기를 만드는 재능이 있습니다. 은은한 바닐라 향이 커피를 감싸듯, 당신은 주변 사람들의 하루를 따뜻하게 만들어줍니다.'
+  },
+  {
+    name: '아몬드 헤이즐넛',
+    eng_name: 'Almond Hazlenuts',
+    x: 8,
+    y: 4,
+    description: '새로운 취향과 공간을 발견하는 것을 즐기는 당신. 사람보다 경험에 더 끌립니다. 익숙함 속에 숨겨진 새로운 풍미를 찾는 한 잔.'
+  },
+  {
+    name: '카페모카',
+    eng_name: 'Cafe Mocha',
+    x: 5,
+    y: 2,
+    description: '커피보다 함께한 시간을 기억하는 당신. 사람들을 자연스럽게 모이게 하는 따뜻한 사람입니다. 달콤함과 부드러움이 오래 남는 한 잔.'
+  },
+  {
+    name: '에스프레소',
+    eng_name: 'Espresso',
+    x: -10,
+    y: -12,
+    description: '짧은 순간에도 강렬한 존재감을 보여주는 당신. 목표가 생기면 누구보다 집중하는 사람입니다. 작은 잔 안에 깊은 에너지를 담은 에스프레소처럼 당신은 강한 추진력을 가지고 있습니다.'
+  },
+  {
+    name: '아포카토',
+    eng_name: 'Affogato',
+    x: 10,
+    y: -2,
+    description: '새로운 사람과 새로운 경험을 좋아하는 당신. 혼자보다 함께일 때 더 빛나는 사람입니다. 달콤함과 에스프레소가 만나는 가장 특별한 한 잔.'
+  },
 
   // None Coffee
-  { name: '라즈베리콕', eng_name: 'Raspberry coke', x: 12, y: 12 },
-  { name: '라즈베리 차', eng_name: 'Raspberry tea', x: 2, y: -8 },
-  { name: '라즈베리 에이드', eng_name: 'Raspberry ade', x: 10, y: 10 },
-  { name: '초코라떼', eng_name: 'Chocolate latte', x: -8, y: -2 },
-  { name: '허브 차', eng_name: 'Herb tea', x: -12, y: -15 },
+  {
+    name: '라즈베리콕',
+    eng_name: 'Raspberry coke',
+    x: 12,
+    y: 12,
+    description: '새로운 자극과 즐거움을 찾아 나서는 당신. 활기차고 솔직한 에너지가 사람들에게 좋은 영향을 줍니다. 톡 쏘는 청량감과 달콤함이 공존하는 라즈베리 콕처럼, 당신은 언제나 즐거운 변화를 만들어냅니다.'
+  },
+  {
+    name: '라즈베리 차',
+    eng_name: 'Raspberry tea',
+    x: 2,
+    y: -8,
+    description: '감성이 풍부하고 작은 아름다움을 놓치지 않는 당신. 조용한 순간 속에서도 자신만의 행복을 발견할 줄 압니다. 은은한 향과 산뜻한 여운을 남기는 라즈베리 차처럼, 당신은 오래도록 기분 좋은 기억으로 남는 사람입니다.'
+  },
+  {
+    name: '라즈베리 에이드',
+    eng_name: 'Raspberry ade',
+    x: 10,
+    y: 10,
+    description: '밝고 자유로운 감성을 가진 당신. 처음 만난 사람과도 금세 가까워질 수 있는 친화력이 있습니다. 상큼한 라즈베리의 향처럼 당신은 주변을 산뜻하게 물들입니다.'
+  },
+  {
+    name: '초코라떼',
+    eng_name: 'Chocolate latte',
+    x: -8,
+    y: -2,
+    description: '따뜻한 감성과 순수한 마음을 가진 당신. 사람들에게 행복을 전하는 것을 좋아합니다. 달콤하고 부드러운 초코라떼처럼 당신은 누구에게나 친근한 존재입니다.'
+  },
+  {
+    name: '허브 차',
+    eng_name: 'Herb tea',
+    x: -12,
+    y: -15,
+    description: '혼자만의 시간을 소중히 여기는 당신. 조용히 생각을 정리하며 자신만의 리듬으로 살아갑니다. 은은한 향처럼 당신은 주변에 편안함을 전하는 사람입니다.'
+  },
 
   // Wine
-  { name: '잔 와인', eng_name: 'Glass wine', x: 3, y: 6 },
+  {
+    name: '잔 와인',
+    eng_name: 'Glass wine',
+    x: 3,
+    y: 6,
+    description: '여유를 즐길 줄 아는 당신. 서두르기보다 순간의 분위기와 감정을 천천히 음미하는 것을 좋아합니다. 한 모금마다 다른 풍미를 전하는 와인처럼, 당신은 깊이 알아갈수록 매력이 더해지는 사람입니다.'
+  },
 
   // Beer
-  { name: '하이네켄', eng_name: 'Heineken', x: -2, y: 10 },
-  { name: '기네스', eng_name: 'Guinness', x: -8, y: -2 },
+  {
+    name: '하이네켄',
+    eng_name: 'Heineken',
+    x: -2,
+    y: 10,
+    description: '어디서든 자연스럽게 어울릴 수 있는 당신. 사람들과 함께하는 순간에서 즐거움을 찾습니다. 깔끔하고 부담 없는 한 잔처럼 당신은 누구에게나 편안한 존재입니다.'
+  },
+  {
+    name: '기네스',
+    eng_name: 'Guinness',
+    x: -8,
+    y: -2,
+    description: '겉으로는 차분하지만 내면에는 깊은 이야기를 품고 있는 당신. 쉽게 드러나지 않는 진중함이 당신의 매력입니다. 시간이 지날수록 풍미가 살아나는 기네스처럼 당신 역시 오래 볼수록 매력적인 사람입니다.'
+  },
 
   // Cocktail
-  { name: '버번 콕 플로트', eng_name: 'Bourbon coke float', x: 12, y: 8 },
-  { name: '뱅쇼', eng_name: 'Vin chaud', x: -3, y: 6 },
-  { name: '라즈베리 하이볼', eng_name: 'Raspberry highball', x: 10, y: 12 },
-  { name: '위스키 리타', eng_name: 'Whiskey margarita', x: 13, y: 4 },
-  { name: '아이리쉬 커피 하이볼', eng_name: 'Irish coffee highball', x: 8, y: -2 },
+  {
+    name: '버번 콕 플로트',
+    eng_name: 'Bourbon coke float',
+    x: 12,
+    y: 8,
+    description: '평범한 일상 속에서도 특별함을 발견하는 당신. 익숙함을 사랑하지만 새로운 재미를 더할 줄 압니다. 달콤한 여운과 풍부한 향이 함께하는 한 잔처럼 당신은 사람들에게 기분 좋은 기억을 남깁니다.'
+  },
+  {
+    name: '뱅쇼',
+    eng_name: 'Vin chaud',
+    x: -3,
+    y: 6,
+    description: '주변 사람들을 챙기고 위로하는 것을 좋아하는 당신. 따뜻한 말 한마디로 분위기를 바꾸는 힘이 있습니다. 은은한 향과 온기를 가진 뱅쇼처럼 당신은 사람들의 마음을 녹입니다.'
+  },
+  {
+    name: '라즈베리 하이볼',
+    eng_name: 'Raspberry highball',
+    x: 10,
+    y: 12,
+    description: '틀에 얽매이지 않고 자신만의 길을 찾는 당신. 새로운 경험을 즐기며 삶을 다채롭게 채워갑니다. 가볍게 시작되지만 깊은 여운을 남기는 한 잔처럼, 당신 역시 오래 기억되는 사람입니다.'
+  },
+  {
+    name: '위스키 리타',
+    eng_name: 'Whiskey margarita',
+    x: 13,
+    y: 4,
+    description: '도전과 모험을 두려워하지 않는 당신. 낯선 환경에서도 자신만의 방식으로 적응하고 성장합니다. 강렬함과 부드러움이 공존하는 위스키 리타처럼 당신은 예측할 수 없는 매력을 지녔습니다.'
+  },
+  {
+    name: '아이리쉬 커피 하이볼',
+    eng_name: 'Irish coffee highball',
+    x: 8,
+    y: -2,
+    description: '익숙한 것에 안주하지 않고 계속해서 새로운 가능성을 찾는 당신. 대화와 경험을 통해 세상을 넓혀가는 것을 즐깁니다. 부드러움과 개성이 공존하는 한 잔처럼 당신 역시 다채로운 매력을 가지고 있습니다.'
+  },
 
   // Food
-  { name: '수제 리얼 티라미수', eng_name: 'Handmade real tiramisu', x: -4, y: 8 },
-  { name: '초콜릿 & 바게트', eng_name: 'Chocolate & Baguette', x: -8, y: -2 },
-  { name: '바닐라 베리 젤라토', eng_name: 'Vanilla berry gelato', x: 8, y: 10 },
-  { name: '판나코타', eng_name: 'Panna cotta', x: -2, y: -6 }
+  {
+    name: '수제 리얼 티라미수',
+    eng_name: 'Handmade real tiramisu',
+    x: -4,
+    y: 8,
+    description: '소중한 추억을 오래 간직하는 당신. 감정의 깊이가 남다르며 작은 순간도 의미 있게 받아들입니다. 달콤함 뒤에 깊은 풍미가 남는 티라미수처럼 당신은 오래 기억되는 사람입니다.'
+  },
+  {
+    name: '초콜릿 & 바게트',
+    eng_name: 'Chocolate & Baguette',
+    x: -8,
+    y: -2,
+    description: '소박한 순간 속에서도 확실한 행복을 찾는 당신. 화려함보다 진심 어린 대화와 따뜻한 시간을 더 소중하게 여깁니다. 달콤한 초콜릿과 고소한 바게트가 어우러지듯, 당신은 편안함과 즐거움을 함께 나누는 사람입니다.'
+  },
+  {
+    name: '바닐라 베리 젤라토',
+    eng_name: 'Vanilla berry gelato',
+    x: 8,
+    y: 10,
+    description: '감수성이 풍부하고 따뜻한 마음을 가진 당신. 작은 순간의 행복을 소중하게 여길 줄 압니다. 부드러운 바닐라와 달콤한 베리가 어우러지듯 당신도 주변 사람들과 자연스럽게 어울립니다.'
+  },
+  {
+    name: '판나코타',
+    eng_name: 'Panna cotta',
+    x: -2,
+    y: -6,
+    description: '여유를 즐길 줄 아는 당신. 서두르기보다 자신만의 속도로 삶을 채워갑니다. 부드럽고 은은한 달콤함을 가진 판나코타처럼 당신은 편안한 행복을 선물하는 사람입니다.'
+  }
 ];

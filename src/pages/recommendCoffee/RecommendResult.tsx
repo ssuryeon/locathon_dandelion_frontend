@@ -23,7 +23,7 @@ function RecommendResult() {
             </div>
             <div style={{width: 'calc(100% - 54px)', height: 222, backgroundColor: '#363636', borderRadius: 20, color: '#DEDEDE', marginTop: -87, zIndex: 2, textAlign: 'center', padding: '25px 16px', boxSizing: 'border-box'}}>
                 <span style={{color: '#DEDEDE', fontSize: 20, fontWeight: 700}}>{menu?.name}</span>
-                <p style={{color: '#DEDEDE', fontSize: 13, fontWeight: 400, marginTop: 21}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos est laborum sint molestias qui eaque ad omnis provident temporibus quia!</p>
+                <p style={{color: '#DEDEDE', fontSize: 13, fontWeight: 400, marginTop: 21}}>{menu?.description}</p>
             </div>
             <SelectBtn style={{color: '#F5CD8A', marginTop: 51}} onClick={() => navigate('/')}>돌아가기</SelectBtn>
         </ContentContainer>
