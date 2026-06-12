@@ -10,7 +10,7 @@ function RecommendCoffee() {
     useEffect(() => setIsClicked(false), []);
 
     return (
-        <div style={{width: '100%', height: '100%', backgroundImage: 'url(/background.svg)', display: 'flex', flexDirection: 'column', position: 'relative'}}>
+        <div style={{width: '100%', height: '100%', backgroundImage: 'url(/background.svg)', backgroundRepeat: 'repeat', display: 'flex', flexDirection: 'column', position: 'relative', overflowY: 'scroll'}}>
             {
                 isClicked? <Overlay /> : null
             }

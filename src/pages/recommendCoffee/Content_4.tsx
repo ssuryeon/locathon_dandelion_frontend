@@ -22,7 +22,7 @@ function Content4() {
             <AnswerBtn onClick={() => onClick(-3, 0)}>스트레스 해소</AnswerBtn>
             <AnswerBtn onClick={() => onClick(0, 3)}>함께한 사람과의 기억</AnswerBtn>
             <AnswerBtn style={{marginBottom: 0}} onClick={() => onClick(-3, -3)}>편안한 여운</AnswerBtn>
-            <span style={{marginTop: 37, color: '#F5CD8A', fontSize: 12, fontWeight: 700}}>4/6</span>
+            <span style={{marginTop: 37, color: '#F5CD8A', fontSize: 12, fontWeight: 700, marginBottom: 38}}>4/6</span>
         </ContentContainer>
     )
 }

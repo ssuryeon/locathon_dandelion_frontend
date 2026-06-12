@@ -22,7 +22,7 @@ function Content2() {
             <AnswerBtn onClick={() => onClick(-3 ,0)}>익숙한 향이라 편안하다</AnswerBtn>
             <AnswerBtn onClick={() => onClick(0, 3)}>누군가와 함께 마시고 싶다</AnswerBtn>
             <AnswerBtn style={{marginBottom: 0}} onClick={() => onClick(0, -3)}>잠시 멈춰 쉬고 싶다</AnswerBtn>
-            <span style={{marginTop: 37, color: '#F5CD8A', fontSize: 12, fontWeight: 700}}>2/6</span>
+            <span style={{marginTop: 37, color: '#F5CD8A', fontSize: 12, fontWeight: 700, marginBottom: 38}}>2/6</span>
         </ContentContainer>
     )
 }

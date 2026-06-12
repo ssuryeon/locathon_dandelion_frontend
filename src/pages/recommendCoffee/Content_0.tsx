@@ -21,7 +21,7 @@ function Content0() {
                             reset();
                         }
                     }>추천해주세요</SelectBtn>
-                    <SelectBtn style={{color: '#FFFDEC'}} onClick={() => navigate('/')}>돌아가기</SelectBtn>
+                    <SelectBtn style={{color: '#FFFDEC', marginBottom: 102}} onClick={() => navigate('/')}>돌아가기</SelectBtn>
                 </div>
             </div>
         </ContentContainer>

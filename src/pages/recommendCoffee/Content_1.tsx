@@ -22,7 +22,7 @@ function Content1() {
             <AnswerBtn onClick={() => onClick(-3, 0)}>하던 일을 꾸준히 이어갈 때</AnswerBtn>
             <AnswerBtn onClick={() => onClick(0, 3)}>누군가와 시간을 보내고 싶을 때</AnswerBtn>
             <AnswerBtn style={{marginBottom: 0}} onClick={() => onClick(0, -3)}>혼자만의 시간을 갖고 싶을 때</AnswerBtn>
-            <span style={{marginTop: 37, color: '#F5CD8A', fontSize: 12, fontWeight: 700}}>1/6</span>
+            <span style={{marginTop: 37, color: '#F5CD8A', fontSize: 12, fontWeight: 700, marginBottom: 38}}>1/6</span>
         </ContentContainer>
     );
 }

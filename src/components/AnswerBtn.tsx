@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const AnswerBtn = styled.button`
     width: 292px;
-    height: 39px;
+    padding-top: 12.5px;
+    padding-bottom: 12.5px;
     border-radius: 10.34px;
     border: 1px solid #DFDFDF;
     color: #FFFDEC;

@@ -25,7 +25,7 @@ function RecommendResult() {
                 <span style={{color: '#DEDEDE', fontSize: 20, fontWeight: 700}}>{menu?.name}</span>
                 <p style={{color: '#DEDEDE', fontSize: 13, fontWeight: 400, marginTop: 21}}>{menu?.description}</p>
             </div>
-            <SelectBtn style={{color: '#F5CD8A', marginTop: 51}} onClick={() => navigate('/')}>돌아가기</SelectBtn>
+            <SelectBtn style={{color: '#F5CD8A', marginTop: 51, marginBottom: 89}} onClick={() => navigate('/')}>돌아가기</SelectBtn>
         </ContentContainer>
     );
 }
