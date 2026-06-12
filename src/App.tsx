@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Main from './pages/Main';
 import MapQuest from './components/MapQuest/MapQuest';
 import Menu from './pages/Menu';
+import MenuDetail from './pages/MenuDetail';
 import RecommendCoffee from './pages/RecommendCoffee';
 import Content0 from './pages/recommendCoffee/Content_0';
 import Content1 from './pages/recommendCoffee/Content_1';
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
   {
     path: '/menu',
     Component: Menu,
-  }, 
+  },
+  {
+    path: '/menu/detail',
+    Component: MenuDetail,
+  },
   {
     path: '/recommend',
     Component: RecommendCoffee,
