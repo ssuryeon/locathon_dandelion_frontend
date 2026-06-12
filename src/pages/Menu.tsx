@@ -46,7 +46,7 @@ function Menu() {
             }
             <Header />
             <img src='/logo.svg' width={132} height={102}  style={{marginTop: 57, marginBottom: 34}}/>
-            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', paddingLeft: 32}}>
+            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', paddingLeft: 32, boxSizing: 'border-box'}}>
                 <CategoryBtn onClick={() => setCategory(1)} style={{backgroundColor: (category == 1) ? '#DFDFDF' : '#474848', color: (category == 1) ? '#474848' : '#FFFFFF'}}>커피</CategoryBtn>
                 <CategoryBtn onClick={() => setCategory(2)} style={{backgroundColor: (category == 2) ? '#DFDFDF' : '#474848', color: (category == 2) ? '#474848' : '#FFFFFF'}}>논커피</CategoryBtn>
                 <CategoryBtn onClick={() => setCategory(3)} style={{backgroundColor: (category == 3) ? '#DFDFDF' : '#474848', color: (category == 3) ? '#474848' : '#FFFFFF'}}>푸드</CategoryBtn>
