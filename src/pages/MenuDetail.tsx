@@ -38,7 +38,7 @@ const C1 = styled.div`
 const C2 = styled.div`
     width: 78px;
     flex: 1;
-    background-color: black;
+    background-color: transparent;
     margin-top: 29px;
 `;
 
