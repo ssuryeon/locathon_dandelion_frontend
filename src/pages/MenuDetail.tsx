@@ -135,6 +135,7 @@ function MenuDetail() {
                     </div>
                 </div>
             </div>
+            <div style={{height: 105}}/>
         </div>
     );
 }
