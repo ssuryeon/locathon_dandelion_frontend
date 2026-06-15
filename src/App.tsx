@@ -14,6 +14,7 @@ import Content4 from './pages/recommendCoffee/Content_4';
 import Content5 from './pages/recommendCoffee/Content_5';
 import Content6 from './pages/recommendCoffee/Content_6';
 import RecommendResult from './pages/recommendCoffee/RecommendResult';
+import MapPage from './pages/MapPage';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   },
   {
     path: '/map',
+    Component: MapPage,
+  },
+  {
+    path: '/maptest',
     Component: MapQuest,
   },
   {
