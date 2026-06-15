@@ -29,7 +29,7 @@ const router = createBrowserRouter([
     Component: Menu,
   },
   {
-    path: '/menu/detail',
+    path: '/menu/:name',
     Component: MenuDetail,
   },
   {

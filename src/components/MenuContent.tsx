@@ -1,8 +1,6 @@
 import styled from "styled-components";
+import { useNavigate } from "react-router";
 
-interface IWrapper {
-    isRight: boolean,
-}
 interface IMenu {
     name: string,
     eng_name: string,
@@ -15,28 +13,6 @@ interface IContent {
     menus: IMenu[],
     style?: object,
 }
-
-const GridContainer = styled.div`
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-    row-gap: 63px;
-    box-sizing: border-box;
-`;
-
-const GridWrapper = styled.div<IWrapper>`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    padding-left: ${props => props.isRight ? 0 : '32px'};
-    padding-right: ${props => props.isRight ? '32px' : 0};
-    justify-content: ${props => props.isRight ? 'flex-end' : 'flex-start'};
-    box-sizing: border-box;
-    background-image: url(/menuItemBackground.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: ${props => props.isRight ? 'right' : 'left'};
-`;
 
 const RowContainer = styled.div`
     width: 100%;
@@ -60,9 +36,11 @@ const Row = styled.div`
 `;
 
 function MenuItem({name, eng_name, isRight}:IMenu) {
+    const navigate = useNavigate();
+
     return (
         <div style={{display: 'flex', flexDirection: 'column', marginLeft: isRight? 0 : 32, marginRight: isRight? 32 : 0, justifySelf: isRight? 'end' : 'start'}}>
-            <div style={{width: 138, height: 172, backgroundColor: '#474848', borderRadius: 10.34, border: '1px solid #DFDFDF'}}>
+            <div style={{width: 138, height: 172, backgroundColor: '#474848', borderRadius: 10.34, border: '1px solid #DFDFDF'}} onClick={() => navigate(`/menu/${eng_name}`)}>
                 <img src={`/menu/${name}.svg`}/>
             </div>
             <span style={{fontSize: 20, fontWeight: 700, color: '#E7D9C9', marginTop: 14}}>{name}</span>
