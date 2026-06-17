@@ -10,8 +10,11 @@ const Container = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     position: absolute;
     top: 0;
+    left: 0;
+    right: 0;
 `;
 
 function Header() {
@@ -19,7 +22,7 @@ function Header() {
 
     return (
         <Container>
-            <img src='/text_logo.svg' />
+            <img src='/text_logo.svg' style={{ maxHeight: '24px', width: 'auto' }} />
             <img src='/menu_icon.svg' onClick={() => setIsClicked(true)}/>
         </Container>
     );
