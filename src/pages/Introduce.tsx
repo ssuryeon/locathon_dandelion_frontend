@@ -13,7 +13,7 @@ function Introduce() {
     return (
         <>
             {
-                isClicked? <Overlay /> : null
+                isClicked? <Overlay style={{zIndex: 2000}}/> : null
             }
             <Header style={{zIndex: 1000}}/>
             <div style={{width: '100%', minHeight: '100%', backgroundImage: 'url(/background.svg)', marginTop: 57, overflowY: 'scroll', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>

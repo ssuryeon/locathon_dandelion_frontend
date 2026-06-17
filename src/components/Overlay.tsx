@@ -57,12 +57,16 @@ const Header = styled.div`
     padding: 0;
 `;
 
-function Overlay() {
+interface IOverlay {
+    style?: object,
+}
+
+function Overlay({style}:IOverlay) {
     const setIsClicked = clickedStore((state) => state.setIsClicked);
     const navigate = useNavigate();
 
     return (
-        <BlurContainer>
+        <BlurContainer style={style}>
             <Header>
                 <img src='/text_logo.svg' width={78} height={21}/>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="23" viewBox="0 0 25 23" fill="none" onClick={() => setIsClicked(false)}>
