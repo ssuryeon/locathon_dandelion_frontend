@@ -74,7 +74,7 @@ function Overlay() {
                 <img src='/logo.svg' width={132} height={102} style={{marginBottom: 28}}/>
                 <MenuBtn onClick={() => navigate('/')}>홈</MenuBtn>
                 <MenuBtn onClick={() => navigate('/menu')}>메뉴판</MenuBtn>
-                <MenuBtn>브랜드 소개</MenuBtn>
+                <MenuBtn onClick={() => navigate('/intro')}>브랜드 소개</MenuBtn>
                 <MenuBtn onClick={() => navigate('/recommend')}>나와 어울리는 커피 찾기</MenuBtn>
                 <MenuBtn onClick={() => navigate('/map')}>공방거리 걷기</MenuBtn>
             </Modal>

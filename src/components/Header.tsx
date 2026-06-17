@@ -17,11 +17,15 @@ const Container = styled.div`
     right: 0;
 `;
 
-function Header() {
+interface IHeader {
+    style?: object,
+}
+
+function Header({style}:IHeader) {
     const setIsClicked = clickedStore((state) => state.setIsClicked);
 
     return (
-        <Container>
+        <Container style={style}>
             <img src='/text_logo.svg' style={{ maxHeight: '24px', width: 'auto' }} />
             <img src='/menu_icon.svg' onClick={() => setIsClicked(true)}/>
         </Container>

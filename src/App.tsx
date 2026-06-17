@@ -15,6 +15,7 @@ import Content5 from './pages/recommendCoffee/Content_5';
 import Content6 from './pages/recommendCoffee/Content_6';
 import RecommendResult from './pages/recommendCoffee/RecommendResult';
 import MapPage from './pages/MapPage';
+import Introduce from './pages/Introduce';
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
         Component: RecommendResult,
       }
     ]
+  },
+  {
+    path: '/intro',
+    Component: Introduce,
   }
 ])
 
