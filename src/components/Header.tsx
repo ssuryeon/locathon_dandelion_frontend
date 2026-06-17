@@ -5,6 +5,7 @@ const Container = styled.div`
     width: 100%;
     padding: 20px;
     height: 57px;
+    background-image: url(/background.svg);
     box-sizing: border-box;
     display: flex;
     flex-direction: row;

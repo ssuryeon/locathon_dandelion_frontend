@@ -12,7 +12,7 @@ const R1 = styled.div`
     height: 100%;
     box-sizing: border-box;
     aspect-ratio: 15/22;
-    margin-right: 28px;
+    margin-right: clamp(0px, calc(100vw - 374px), 28px);
 `;
 
 const R2 = styled.div`
@@ -101,7 +101,7 @@ function MenuDetail() {
     useEffect(() => setIsClicked(false), []);
 
     return (
-        <div style={{backgroundImage: 'url(/background.svg)', width: '100%', height: '100%', overflowY: 'scroll'}}>
+        <div style={{backgroundImage: 'url(/background.svg)', width: '100%', minHeight: '100%'}}>
             {
                 isClicked? <Overlay /> : null
             }
@@ -120,13 +120,13 @@ function MenuDetail() {
                         </div>
                     </div>
                 </div>
-                <div style={{width: '100%', height: 341, display: 'flex', flexDirection: 'row', marginTop: 29}}>
+                <div style={{width: '100%', height: 341, display: 'flex', flexDirection: 'row', marginTop: 29, justifyContent: 'space-between'}}>
                     <div style={{width: 101, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                         <C1 style={{backgroundImage: `url("/${name}/C1.svg")`}}/>
                         <C2 style={{backgroundImage: `url("/${name}/C2.svg")`}}/>
                     </div>
                     <R4 style={{backgroundImage: `url("/${name}/R4.svg")`}}/>
-                    <div style={{display: 'flex', width: 157, height: 341, flexDirection: 'column', justifyContent: 'space-between', marginLeft: 31, boxSizing: 'border-box', overflow: 'hidden'}}>
+                    <div style={{display: 'flex', width: 157, height: 341, flexDirection: 'column', justifyContent: 'space-between', marginLeft: 31, boxSizing: 'border-box'}}>
                         <C3 style={{backgroundImage: `url("/${name}/C3.svg")`}}/>
                         <div style={{display: 'flex', height: 100, flexDirection: 'column', justifyContent: 'flex-end', boxSizing: 'border-box', overflow: 'hidden'}}>
                             <span style={{fontSize: 10, color: "#E7D9C9", fontWeight: 300, fontFamily: "SpokaHanSansNeo", lineHeight: "1.2", display: 'inline-block'}}>{menu?.eng_desc}</span>
