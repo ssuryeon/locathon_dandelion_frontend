@@ -48,6 +48,17 @@
   }
 }
 
+button {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+button:not(:disabled):active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+  transition: none;
+}
+
 html,
 body {
   margin: 0;
