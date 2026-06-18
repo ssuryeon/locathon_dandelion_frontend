@@ -12,7 +12,7 @@ function RecommendCoffee() {
     return (
         <div style={{width: '100%', height: '100%', backgroundImage: 'url(/background.svg)', backgroundRepeat: 'repeat', display: 'flex', flexDirection: 'column', position: 'relative', overflowY: 'scroll'}}>
             {
-                isClicked? <Overlay /> : null
+                isClicked? <Overlay style={{zIndex: 1000}}/> : null
             }
             <Header />
             <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: 'calc(100% - 57px)', marginTop: 57}}>
