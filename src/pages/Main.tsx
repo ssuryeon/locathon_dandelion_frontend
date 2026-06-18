@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import {useEffect, useState} from 'react';
 import { useNavigate } from "react-router";
 import Header from '../components/Header';
@@ -59,20 +59,26 @@ const MenuContainer = styled.div`
     align-items: center;
     margin-right: 10px;
     box-sizing: border-box;
-    &:nth-of-type(8) {
-        margin-right: 0;
-    }
+`;
+
+const autoScroll = keyframes`
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+`;
+
+const ScrollTrack = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    animation: ${autoScroll} 25s linear infinite;
 `;
 
 const ScrollContainer = styled.div`
     width: 100%;
     height: 168px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    touch-action: pan-x;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
     &::-webkit-scrollbar {
         display: none;
@@ -133,7 +139,7 @@ function Main() {
         setIsClicked(false);
         let cnt = 0;
         const nums:number[] = [];
-        while(cnt <= 7) {
+        while(cnt <= 9) {
             const rand = Math.floor(Math.random()*12);
             if(nums.includes(rand)) continue;
             cnt += 1;
@@ -170,11 +176,13 @@ function Main() {
                     {
                         selected.length && (
                             <ScrollContainer>
-                                {selected.map((num, idx) => (
-                                    <MenuContainer key={idx}>
-                                        <img src={`/menu/${menus[num]}.svg`} width={90} height={120} />
-                                    </MenuContainer>
-                                ))}
+                                <ScrollTrack>
+                                    {[...selected, ...selected].map((num, idx) => (
+                                        <MenuContainer key={idx}>
+                                            <img src={`/menu/${menus[num]}.svg`} width={90} height={120} />
+                                        </MenuContainer>
+                                    ))}
+                                </ScrollTrack>
                             </ScrollContainer>
                         )
                     }
