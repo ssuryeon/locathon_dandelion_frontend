@@ -6,9 +6,12 @@ import { useEffect } from "react";
 import { SelectBtn } from "../components/SelectBtn";
 import { useState } from "react";
 import { geoToMapPx } from '../lib/projectPos';
-import { useGeolocation } from "../hooks/useGeolocation";
+// 테스트 시: useMockGeolocation 으로 교체, 실제 배포 시: useGeolocation 으로 복원
+// import { useGeolocation } from "../hooks/useGeolocation";
+import { useMockGeolocation as useGeolocation } from "../hooks/useMockGeolocation";
 import { haversineDistanceMeters } from '../lib/geo';
 import spotMarkedStore from '../stores/SpotMarkedStore';
+import { useNavigate } from "react-router";
 
 const Button = styled.button`
     width: 120px;
@@ -17,7 +20,7 @@ const Button = styled.button`
     border: 1px solid #DFDFDF;
     background-color: #474848;
     color: #F5CD8A;
-    .active {
+    &.active {
         background-color: linear-gradient(#FFDC8B, #F8BC84);
         color: #FFFDEC;
     }
@@ -30,7 +33,7 @@ const Spot = styled.div`
     box-shadow: 0 0 17.6px 0 #F47C48;
     background-color: white;
     border: 1px solid #FF6900;
-    &:active {
+    &.active {
         background-color: #FF8B58
     }
 `;
@@ -76,17 +79,28 @@ function MapPage() {
     const markSpot = spotMarkedStore((state) => state.markSpot);
     const [showTutorial, setShowTutorial] = useState(true);
     const location = useGeolocation();
+    const navigate = useNavigate();
+    const [btnActive, setBtnActive] = useState((marked.filter((m) => m).length == 5) ? true : false);
+    const onClick = () => {
+        if(marked.filter((m) => m).length == 5) {
+            navigate('/map/gift');
+        }
+        else alert('공방거리 스팟을 더 채워주세요.');
+    }
 
     useEffect(() => {
         setIsClicked(false);
     }, []);
     useEffect(() => {
+        if(marked.filter((m) => m).length == 5) {
+            setBtnActive(true);
+        }
         if (location.position == null) return;
         SpotPos.forEach((spot, i) => {
             const distance = haversineDistanceMeters(location.position!, {lat: spot.lat, lng: spot.lon});
             if (distance <= 30) markSpot(i);
         });
-    }, [location, marked])
+    }, [location.position?.lat, location.position?.lng])
 
     return (
         <>
@@ -117,7 +131,7 @@ function MapPage() {
                             }
                         </div>
                     </div>
-                        <Button style={{marginTop: 46.47, fontSize: 15, fontWeight: 700}}>선물 받기</Button>
+                        <Button style={{marginTop: 46.47, fontSize: 15, fontWeight: 700}} onClick={onClick} className={btnActive? 'active' : 'inactive'}>선물 받기</Button>
                     </div>
                 </div>
             )}

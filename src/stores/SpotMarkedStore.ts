@@ -13,6 +13,7 @@ const spotMarkedStore = create<SpotMarkedState>()(
             marked: [false, false, false, false, false],
             markSpot: (index: number) =>
                 set((state) => {
+                    if (state.marked[index]) return state;
                     const next = [...state.marked];
                     next[index] = true;
                     return { marked: next };
