@@ -11,14 +11,14 @@ const SPOTS = [
 ]
 const STEP_MS = 1000
 
-export function useMockGeolocation(): UseGeolocationState {
+export function useMockGeolocation(enabled = true): UseGeolocationState {
   const [step, setStep] = useState(0)
 
   useEffect(() => {
-    if (step >= SPOTS.length - 1) return
+    if (!enabled || step >= SPOTS.length - 1) return
     const id = setTimeout(() => setStep((s) => s + 1), STEP_MS)
     return () => clearTimeout(id)
-  }, [step])
+  }, [step, enabled])
 
   return {
     status: 'watching',

@@ -7,8 +7,8 @@ import { SelectBtn } from "../components/SelectBtn";
 import { useState } from "react";
 import { geoToMapPx } from '../lib/projectPos';
 // 테스트 시: useMockGeolocation 으로 교체, 실제 배포 시: useGeolocation 으로 복원
-// import { useGeolocation } from "../hooks/useGeolocation";
-import { useMockGeolocation as useGeolocation } from "../hooks/useMockGeolocation";
+import { useGeolocation } from "../hooks/useGeolocation";
+// import { useMockGeolocation as useGeolocation } from "../hooks/useMockGeolocation";
 import { haversineDistanceMeters } from '../lib/geo';
 import spotMarkedStore from '../stores/SpotMarkedStore';
 import { useNavigate } from "react-router";
@@ -78,6 +78,7 @@ function MapPage() {
     const marked = spotMarkedStore((state) => state.marked);
     const markSpot = spotMarkedStore((state) => state.markSpot);
     const [showTutorial, setShowTutorial] = useState(true);
+    // const location = useGeolocation(!showTutorial);
     const location = useGeolocation();
     const navigate = useNavigate();
     const btnActive = marked.filter((m) => m).length === 5;
@@ -89,7 +90,7 @@ function MapPage() {
     }
 
     useEffect(() => {
-        setIsClicked(false);
+;        setIsClicked(false);
     }, []);
     useEffect(() => {
         if (location.position == null) return;
