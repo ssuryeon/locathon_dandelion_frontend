@@ -21,7 +21,7 @@ const Button = styled.button`
     background-color: #474848;
     color: #F5CD8A;
     &.active {
-        background-color: linear-gradient(#FFDC8B, #F8BC84);
+        background: linear-gradient(#FFDC8B, #F8BC84);
         color: #FFFDEC;
     }
 `;
@@ -80,9 +80,9 @@ function MapPage() {
     const [showTutorial, setShowTutorial] = useState(true);
     const location = useGeolocation();
     const navigate = useNavigate();
-    const [btnActive, setBtnActive] = useState((marked.filter((m) => m).length == 5) ? true : false);
+    const btnActive = marked.filter((m) => m).length === 5;
     const onClick = () => {
-        if(marked.filter((m) => m).length == 5) {
+        if(btnActive) {
             navigate('/map/gift');
         }
         else alert('공방거리 스팟을 더 채워주세요.');
@@ -92,9 +92,6 @@ function MapPage() {
         setIsClicked(false);
     }, []);
     useEffect(() => {
-        if(marked.filter((m) => m).length == 5) {
-            setBtnActive(true);
-        }
         if (location.position == null) return;
         SpotPos.forEach((spot, i) => {
             const distance = haversineDistanceMeters(location.position!, {lat: spot.lat, lng: spot.lon});

@@ -1,31 +1,28 @@
 import { useEffect, useState } from 'react'
-import { destinationPoint } from '../lib/geo'
 import type { UseGeolocationState } from './useGeolocation'
 
-// 카페 레퓨즈 방향으로 300m 남쪽에서 매초 25m씩 접근
-// 약 11초 후 30m 이내 진입 → markSpot 트리거
-const TARGET = { lat: 37.278941, lng: 127.015264 }
-const START_DISTANCE_M = 300
-const STEP_M = 25
-const INTERVAL_MS = 1000
+// 맵 위 스팟을 왼쪽(경애공방)→오른쪽(막걸리 계보) 순으로 1초마다 이동
+const SPOTS = [
+  { lat: 37.280480, lng: 127.014690 }, // 경애공방
+  { lat: 37.279913, lng: 127.014976 }, // 영화당
+  { lat: 37.279444, lng: 127.014911 }, // 스튜디오 로티니
+  { lat: 37.278941, lng: 127.015264 }, // 카페 레퓨즈
+  { lat: 37.278078, lng: 127.015766 }, // 막걸리 계보
+]
+const STEP_MS = 1000
 
 export function useMockGeolocation(): UseGeolocationState {
-  const [distanceM, setDistanceM] = useState(START_DISTANCE_M)
+  const [step, setStep] = useState(0)
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setDistanceM((d) => {
-        const next = d - STEP_M
-        if (next <= 0) clearInterval(id)
-        return Math.max(0, next)
-      })
-    }, INTERVAL_MS)
-    return () => clearInterval(id)
-  }, [])
+    if (step >= SPOTS.length - 1) return
+    const id = setTimeout(() => setStep((s) => s + 1), STEP_MS)
+    return () => clearTimeout(id)
+  }, [step])
 
   return {
     status: 'watching',
-    position: destinationPoint(TARGET, distanceM, 180), // 남쪽에서 접근
+    position: SPOTS[step],
     accuracyM: 5,
     updatedAtMs: Date.now(),
   }
