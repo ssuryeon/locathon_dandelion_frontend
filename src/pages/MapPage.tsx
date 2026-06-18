@@ -52,7 +52,7 @@ interface ITutorial {
 
 function Tutorial({set}:ITutorial) {
     return (
-        <div style={{width: '100%', minHeight: '100%', backgroundColor: 'black', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', overflowY: 'scroll'}}>
+        <div style={{width: '100%', minHeight: '100vh', backgroundColor: 'black', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center'}}>
             <img src='/stamp_activated.svg' width={107} height={107}/>
             <span style={{marginTop: 15, fontSize: 20, fontWeight: 700, color: '#DEDEDE'}}>REFUGE fire</span>
             <p style={{marginTop: 20, fontSize: 14, fontWeight: 700, color: '#DEDEDE'}}>불꽃을 찾아 돌아다녀보세요<br />5개의 불꽃을 밝히고 레퓨즈만의<br />맛있는 선물을 받으세요 !</p>
