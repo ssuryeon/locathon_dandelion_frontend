@@ -7,7 +7,8 @@ import { SelectBtn } from "../components/SelectBtn";
 import { useState } from "react";
 import { geoToMapPx } from '../lib/projectPos';
 import { useGeolocation } from "../hooks/useGeolocation";
-import {haversineDistanceMeters} from '../lib/geo';
+import { haversineDistanceMeters } from '../lib/geo';
+import spotMarkedStore from '../stores/SpotMarkedStore';
 
 const Button = styled.button`
     width: 120px;
@@ -35,11 +36,11 @@ const Spot = styled.div`
 `;
 
 const SpotPos = [
-    {name: '경애공방', lon: 127.014690, lat: 37.280480, marked: false},
-    {name: '영화당', lon: 127.014976, lat: 37.279913, marked: false},
-    {name: '스튜디오 로티니', lon: 127.014911, lat: 37.279444, marked: false},
-    {name: '카페 레퓨즈', lon: 127.015264, lat: 37.278941, marked: false},
-    {name: '막걸리 계보', lon: 127.015766, lat: 37.278078, marked: false}
+    {name: '경애공방', lon: 127.014690, lat: 37.280480},
+    {name: '영화당', lon: 127.014976, lat: 37.279913},
+    {name: '스튜디오 로티니', lon: 127.014911, lat: 37.279444},
+    {name: '카페 레퓨즈', lon: 127.015264, lat: 37.278941},
+    {name: '막걸리 계보', lon: 127.015766, lat: 37.278078},
 ]
 
 interface ITutorial {
@@ -60,31 +61,31 @@ function Tutorial({set}:ITutorial) {
     )
 }
 
-interface ICurrentLoc {
-  status: 'idle' | 'requesting' | 'watching' | 'error'
-  position?: { lat: number, lng: number }  // 위도/경도 여기
-  accuracyM?: number
-  error?: string
-  updatedAtMs?: number
-}
+// interface ICurrentLoc {
+//   status: 'idle' | 'requesting' | 'watching' | 'error'
+//   position?: { lat: number, lng: number }  // 위도/경도 여기
+//   accuracyM?: number
+//   error?: string
+//   updatedAtMs?: number
+// }
 
 function MapPage() {
     const isClicked = clickedStore((state) => state.isClicked);
     const setIsClicked = clickedStore((state) => state.setIsClicked);
+    const marked = spotMarkedStore((state) => state.marked);
+    const markSpot = spotMarkedStore((state) => state.markSpot);
     const [showTutorial, setShowTutorial] = useState(true);
-    const [currentLoc, setCurrentLoc] = useState<ICurrentLoc | null>(null);
     const location = useGeolocation();
 
     useEffect(() => {
         setIsClicked(false);
     }, []);
     useEffect(() => {
-        setCurrentLoc(location);
-        for(var i=0;i<5;i++) {
-            if(location.position == null) break;
-            const distance = haversineDistanceMeters(location.position, {lat: SpotPos[i]['lat'], lng: SpotPos[i]['lon']});
-            if(distance <= 30) SpotPos[i]['marked'] = true;
-        }
+        if (location.position == null) return;
+        SpotPos.forEach((spot, i) => {
+            const distance = haversineDistanceMeters(location.position!, {lat: spot.lat, lng: spot.lon});
+            if (distance <= 30) markSpot(i);
+        });
     }, [location])
 
     return (
@@ -105,7 +106,7 @@ function MapPage() {
                                 containerHeightPx: 253,
                                 target: { lat: s.lat, lng: s.lon }
                             });
-                            return <Spot key={idx} style={{ position: 'absolute', top: pos.y - 9, left: pos.x - 9 }} className={s.marked ? 'active' : 'inactive'}/>
+                            return <Spot key={idx} style={{ position: 'absolute', top: pos.y - 9, left: pos.x - 9 }} className={marked[idx] ? 'active' : 'inactive'}/>
                         })}
                     </div>
                     <div style={{backgroundImage: 'url(/stamp_background.svg)', backgroundSize: 'cover', width: '100%', height: 163.53, marginTop: 61, padding: '22.45px 19.05px', boxSizing: 'border-box'}}>
