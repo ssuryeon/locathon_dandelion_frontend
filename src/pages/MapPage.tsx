@@ -86,7 +86,7 @@ function MapPage() {
             const distance = haversineDistanceMeters(location.position!, {lat: spot.lat, lng: spot.lon});
             if (distance <= 30) markSpot(i);
         });
-    }, [location])
+    }, [location, marked])
 
     return (
         <>
@@ -112,11 +112,9 @@ function MapPage() {
                     <div style={{backgroundImage: 'url(/stamp_background.svg)', backgroundSize: 'cover', width: '100%', height: 163.53, marginTop: 61, padding: '22.45px 19.05px', boxSizing: 'border-box'}}>
                         <span style={{marginTop: 22.45, display: 'inline-block', color: '#DEDEDE', fontSize: 13.89, fontWeight: 500}}>불꽃 스탬프</span>
                         <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', width: '100%', boxSizing: 'border-box', marginTop: 14.63}}>
-                            <img src='/stamp.svg' />
-                            <img src='/stamp.svg' />
-                            <img src='/stamp.svg' />
-                            <img src='/stamp.svg' />
-                            <img src='/stamp.svg' />
+                            {
+                                [0, 1, 2, 3, 4].map((i) => <img src={i < marked.filter((m) => m).length ? '/stamp_activated.svg' : '/stamp.svg'} key={i} />)
+                            }
                         </div>
                     </div>
                         <Button style={{marginTop: 46.47, fontSize: 15, fontWeight: 700}}>선물 받기</Button>
