@@ -19,7 +19,7 @@ function RecommendResult() {
             <span style={{marginTop: 43, color: '#DEDEDE', fontSize: 20, fontWeight: 700, textAlign: 'center', marginBottom: 33}}>축하합니다!<br />당신과 어울리는 커피가 완성되었습니다.</span>
             <div style={{backgroundImage: 'url(/question_images/q0_background.svg)', width: '100%', height: 354, position: 'relative'}}>
                 <img src='/question_images/recommend_result_image.svg' />
-                <img src={`/menu/${menu?.name}.svg`} height={268} style={{position: 'absolute', bottom: 84, left: '50%', transform: 'translateX(-50%)'}}/>
+                <img src={`/menu_shadow/${menu?.name}.svg`} height={268} style={{position: 'absolute', bottom: 84, left: '50%', transform: 'translateX(-50%)'}}/>
             </div>
             <div style={{width: 'calc(100% - 54px)', height: 222, backgroundColor: '#363636', borderRadius: 20, color: '#DEDEDE', marginTop: -87, zIndex: 2, textAlign: 'center', padding: '25px 16px', boxSizing: 'border-box'}}>
                 <span style={{color: '#DEDEDE', fontSize: 20, fontWeight: 700}}>{menu?.name}</span>
